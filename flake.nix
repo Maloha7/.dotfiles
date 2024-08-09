@@ -22,7 +22,7 @@
 	homeConfigurations = {
 		maloha = home-manager.lib.homeManagerConfiguration {
 			inherit pkgs;
-			modules = [ ./home.nix ./git.nix ];
+			modules = [ ./home.nix ];
 		};
 	};
   };
