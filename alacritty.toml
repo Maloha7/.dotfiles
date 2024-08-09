@@ -1,0 +1,45 @@
+
+# Window configuration
+[window]
+padding = { x = 0, y = 0 }
+dynamic_padding = true
+decorations = "none"
+opacity = 0.9
+
+[env]
+TERM = "xterm-256color"
+
+# Font configuration
+[font]
+# Point size of the font
+size = 10.0
+
+# The normal (roman) font face to use.
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+# The bold font face
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+# The italic font face
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+
+# Offset is the extra space around each character. offset.y can be thought of
+# as modifying the line spacing, and offset.x as modifying the letter spacing.
+[font.offset]
+x = 0
+y = 0
+
+# Glyph offset determines the locations of the glyphs within their cells with
+# the default being at the bottom. Increasing glyph offset moves the glyphs
+# higher up within their cells.
+[font.glyph_offset]
+x = 0
+y = 0
+
