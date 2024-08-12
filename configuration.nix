@@ -11,8 +11,49 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      # Disables the first screen
+      # timeout = 0;
+    };
+
+    initrd = {
+      systemd.enable = true;
+      verbose = false;
+    };
+
+    plymouth = {
+      enable = true;
+      # theme = "cubes";
+      # themePackages = with pkgs; [
+      #   # By default we would install all themes
+      #   (adi1090x-plymouth-themes.override {
+      #     selected_themes = [ "cubes" ];
+      #   })
+      # ];
+    };
+
+    # Enable "Silent Boot"
+    consoleLogLevel = 0;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+    ];
+  };
+
+  # GPU
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,10 +85,23 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+
+  # LACT AMD GPU CONTROLLER
+  systemd.services.lactd = {
+    description = "AMDGPU Control Daemon";
+    enable = true;  
+    serviceConfig = {
+      ExecStart = "${pkgs.lact}/bin/lact daemon";
+    };
+    wantedBy = ["multi-user.target"];
+  };
+
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -108,13 +162,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  vim
   git
   kitty
   alacritty
   home-manager # For managing .config files
-  pavucontrol
-  killall
+
+  # APPLICATIONS
+  pavucontrol # Sound control
+  lact # Amd gpu controller
+  spotify
+  teams-for-linux # Microsoft teams
 
   # LANGUAGES
   python3
@@ -127,6 +185,7 @@
   fd # Find files for telescope
   lazygit
   lazydocker
+  # Needed for mason
   fzf
   curl
   unzip
@@ -134,6 +193,7 @@
   gzip
   nodejs
   cargo
+  # Needed for mason
 
   # HYPRLAND
   hyprpaper # For setting backgrounds in hyprland
@@ -143,11 +203,11 @@
   dunst # Notification daemon
   libnotify # Also notification daemon. Not sure if needed?
   swww # Animated wallpaper daemon
-  # xdg-desktop-portal-hyprland
+  xdg-desktop-portal-hyprland
   # xdg-desktop-portal-gtk
   wlogout # Logout manager
   hyprlock # Screen locker
-  swaylock-effects
+  swaylock-effects # Screen locker
   qt6ct
   ];
 
@@ -183,6 +243,9 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "maloha" ];
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -6,6 +6,7 @@
   ./git.nix
   ];
 
+  catppuccin.enable = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -75,6 +76,10 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+
+
+    # Force apps to use wayland
+    NIXOS_OZONE_WL=1;
   };
 
   home.file = {

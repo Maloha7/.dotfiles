@@ -1,9 +1,38 @@
 {
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock", "idle_inhibitor"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["clock"],
     /* "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"], */
     "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"],
 
+    "hyprland/workspaces": {
+        "on-click": "activate",  
+        "format": "{icon}",
+        "format-icons": {
+            // "1": "󰲠",
+            // "2": "󰲢",
+            // "3": "󰲤",
+            // "4": "󰲦",
+            // "5": "󰲨",
+            // "6": "󰲪",
+            // "7": "󰲬",
+            // "8": "󰲮",
+            // "9": "󰲰",
+            // "10": "󰿬",
+            // "special": "",
+
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "show-special": true,
+        "persistent-workspaces": {
+            "*": 10
+        }
+    },
+    "hyprland/submap": {
+        "format": "<span color='#a6da95'>Mode:</span> {}",
+        "tooltip": false,
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -52,15 +81,6 @@
 	"custom/power": {
 		"format": " ",
 		"on-click": "wlogout"
-	},
-    "custom/scratchpad-indicator": {
-        "format-text": "{}hi",
-        "return-type": "json",
-        "interval": 3,
-        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
-        "exec-if": "exit 0",
-        "on-click": "swaymsg 'scratchpad show'",
-        "on-click-right": "swaymsg 'move scratchpad'"
-    }
+	}
 }
 
