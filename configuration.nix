@@ -101,7 +101,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -173,6 +173,7 @@
   lact # Amd gpu controller
   spotify
   teams-for-linux # Microsoft teams
+  qutebrowser
 
   # LANGUAGES
   python3
@@ -209,6 +210,8 @@
   hyprlock # Screen locker
   swaylock-effects # Screen locker
   qt6ct
+  wl-clipboard # Wayland clipboard
+  cliphist # Clipboard manager
   ];
 
   # Fonts
