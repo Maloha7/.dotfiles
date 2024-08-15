@@ -24,15 +24,17 @@
       verbose = false;
     };
 
+    # Flicker free graphical bootloader 
+    # with animated splach screen
     plymouth = {
       enable = true;
-      # theme = "cubes";
-      # themePackages = with pkgs; [
-      #   # By default we would install all themes
-      #   (adi1090x-plymouth-themes.override {
-      #     selected_themes = [ "cubes" ];
-      #   })
-      # ];
+      theme = "cubes";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "cubes" ];
+        })
+      ];
     };
 
     # Enable "Silent Boot"
@@ -147,7 +149,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Experimental features
+  # Experimental features to enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   # Hyperland compositor
@@ -164,16 +166,17 @@
   environment.systemPackages = with pkgs; [
   vim
   git
-  kitty
-  alacritty
+  kitty # Terminal emulator
+  alacritty # Terminal emulator
   home-manager # For managing .config files
 
   # APPLICATIONS
   pavucontrol # Sound control
-  lact # Amd gpu controller
   spotify
   teams-for-linux # Microsoft teams
-  qutebrowser
+  qutebrowser # Keyboard based web browser
+  lazygit # Git terminal ui
+  lazydocker # Docker terminal ui
 
   # LANGUAGES
   python3
@@ -184,17 +187,15 @@
   gcc # Needed for treesitter in neovim
   ripgrep # Live grep for telescope
   fd # Find files for telescope
-  lazygit
-  lazydocker
-  # Needed for mason
-  fzf
+  fzf # Fuzzy finder
+  
+  # Needed for LSP (mason)
   curl
   unzip
   wget
   gzip
   nodejs
   cargo
-  # Needed for mason
 
   # HYPRLAND
   hyprpaper # For setting backgrounds in hyprland
@@ -212,6 +213,7 @@
   qt6ct
   wl-clipboard # Wayland clipboard
   cliphist # Clipboard manager
+  arc-theme # GTK theme
   ];
 
   # Fonts
@@ -246,6 +248,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # Enable virtualbox
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "maloha" ];
 

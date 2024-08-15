@@ -3,12 +3,30 @@
 {
   imports = [
 	./sh.nix
-  ./git.nix
+    ./git.nix
   ];
 
-  catppuccin.enable = true;
+  ### THEME ###
+  catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+        pointerCursor = {
+            enable = true;
+            accent = "teal";
+            flavor = "macchiato";
+        };
+    };
 
-  # Home Manager needs a bit of information about you and the paths it should
+  gtk = {
+        enable = true;
+        catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+        gnomeShellTheme = true;
+    };
+  };
+
+  # Home Manager needs a bit of informa:tion about you and the paths it should
   # manage.
   home.username = "maloha";
   home.homeDirectory = "/home/maloha";
@@ -82,6 +100,7 @@
     NIXOS_OZONE_WL=1;
   };
 
+  # Puts the config files from .dotfiles into .config
   home.file = {
 	".config/hypr/hyprland.conf".source = ./hyprland.conf;
 	".config/alacritty/alacritty.toml".source = ./alacritty.toml;
@@ -127,6 +146,9 @@
 		  ];
 	};
   };
+
+  # Enables starship which ensures a fast prompt in the shell
+  programs.starship.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
