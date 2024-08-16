@@ -6,25 +6,6 @@
     ./git.nix
   ];
 
-  ### THEME ###
-  catppuccin = {
-        enable = true;
-        flavor = "macchiato";
-        pointerCursor = {
-            enable = true;
-            accent = "teal";
-            flavor = "macchiato";
-        };
-    };
-
-  gtk = {
-        enable = true;
-        catppuccin = {
-        enable = true;
-        flavor = "macchiato";
-        gnomeShellTheme = true;
-    };
-  };
 
   # Home Manager needs a bit of informa:tion about you and the paths it should
   # manage.
@@ -98,6 +79,26 @@
 
     # Force apps to use wayland
     NIXOS_OZONE_WL=1;
+  };
+
+  ### THEME ###
+  catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+        pointerCursor = {
+            enable = true;
+            accent = "teal";
+            flavor = "macchiato";
+        };
+    };
+
+  gtk = {
+        enable = true;
+        catppuccin = {
+        enable = true;
+        flavor = "macchiato";
+        gnomeShellTheme = true;
+    };
   };
 
   # Puts the config files from .dotfiles into .config

@@ -28,11 +28,11 @@
     # with animated splach screen
     plymouth = {
       enable = true;
-      theme = "cubes";
+      theme = "dark_planet";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "cubes" ];
+          selected_themes = [ "dark_planet" ];
         })
       ];
     };
