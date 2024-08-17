@@ -2,7 +2,7 @@
     "modules-left": ["hyprland/workspaces", "hyprland/submap"],
     "modules-center": ["clock"],
     /* "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"], */
-    "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"],
+    "modules-right": [ "pulseaudio", "battery", "custom/power"],
 
     "hyprland/workspaces": {
         "on-click": "activate",  
@@ -31,7 +31,7 @@
     },
     "hyprland/submap": {
         "format": "<span color='#a6da95'>Mode:</span> {}",
-        "tooltip": false,
+        "tooltip": false
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -56,17 +56,18 @@
         "spacing": 10
     },
     "clock": {
+        "format": "{:%H:%M  %m/%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-		    "on-click": "gnome-calendar"
+		"on-click": "gnome-calendar"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": "0% {icon} ",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source": "{volume}%  ",
+        "format-source-muted": " ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -78,6 +79,10 @@
         },
         "on-click": "pavucontrol"
     },
+    "battery": {
+            "format": "{capacity}% {icon}",
+            "format-icons": ["", "", "", "", ""]
+        },
 	"custom/power": {
 		"format": " ",
 		"on-click": "wlogout"
