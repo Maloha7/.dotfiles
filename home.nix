@@ -136,6 +136,10 @@
 		source = ./wofi;
 		recursive = true;
 	};
+	".config/dunst" = {
+		source = ./dunst;
+		recursive = true;
+	};
   };
 
   services.hyprpaper = {

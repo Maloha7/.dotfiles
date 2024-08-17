@@ -215,6 +215,7 @@
   wl-clipboard # Wayland clipboard
   cliphist # Clipboard manager
   hyprshot # Screenshot program
+  brightnessctl # Brightness adjuster
   ];
 
   # Fonts
