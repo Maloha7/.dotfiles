@@ -100,8 +100,11 @@
   };
 
 
-  # Enable the GNOME Desktop Environment.
+  # Display Manager (login screen)
   services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.sddm.enable = false;
+
+  # Enable the GNOME Desktop Environment.
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11

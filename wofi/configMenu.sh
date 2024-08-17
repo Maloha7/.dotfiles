@@ -19,6 +19,9 @@ options[ Alacritty]="$HOME/.dotfiles/alacritty.toml"
 options[ Configuration]="$HOME/.dotfiles/configuration.nix"
 options[ Hyprland]="$HOME/.dotfiles/hyprland.conf"
 options[ Home-Manager]="$HOME/.dotfiles/home.nix"
+options[ Config menu]="$HOME/.dotfiles/wofi/configMenu.sh"
+options[ Waybar config]="$HOME/.dotfiles/waybar/config"
+options[ Waybar style]="$HOME/.dotfiles/waybar/style.css"
 
 # Piping the above array into dmenu.
 # We use "printf '%s\n'" to format the array one item to a line.
