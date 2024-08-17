@@ -211,7 +211,7 @@
   qt6ct
   wl-clipboard # Wayland clipboard
   cliphist # Clipboard manager
-  arc-theme # GTK theme
+  hyprshot # Screenshot program
   ];
 
   # Fonts
