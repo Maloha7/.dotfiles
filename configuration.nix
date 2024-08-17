@@ -89,7 +89,6 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-
   # LACT AMD GPU CONTROLLER
   systemd.services.lactd = {
     description = "AMDGPU Control Daemon";
@@ -174,7 +173,6 @@
   pavucontrol # Sound control
   spotify
   teams-for-linux # Microsoft teams
-  qutebrowser # Keyboard based web browser
   lazygit # Git terminal ui
   lazydocker # Docker terminal ui
 

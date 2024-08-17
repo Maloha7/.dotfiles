@@ -79,6 +79,9 @@
 
     # Force apps to use wayland
     NIXOS_OZONE_WL=1;
+
+    GTK_THEME = "Catpuccin-Macchiato";
+    XDG_CURRENT_DESKTOP = "Hyprland";
   };
 
   ### THEME ###
@@ -91,7 +94,7 @@
             flavor = "macchiato";
         };
     };
-
+  
   gtk = {
         enable = true;
         catppuccin = {
@@ -127,6 +130,10 @@
 	};
 	".config/xdg-desktop-portal" = {
 		source = ./xdg-desktop-portal;
+		recursive = true;
+	};
+	".config/wofi" = {
+		source = ./wofi;
 		recursive = true;
 	};
   };
