@@ -13,6 +13,9 @@
         syntaxHighlighting.enable = true;
         enableCompletion = true;
         autocd = true;
+        initExtra = ''
+            source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        '';
 
         oh-my-zsh = {
                 enable = true;

@@ -197,6 +197,7 @@
   gzip
   nodejs
   cargo
+  cmake
 
   # HYPRLAND
   hyprpaper # For setting backgrounds in hyprland
