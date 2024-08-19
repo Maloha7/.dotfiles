@@ -181,6 +181,7 @@
 
   # LANGUAGES
   python3
+  nodejs
 
   # NEOVIM
   neovim
