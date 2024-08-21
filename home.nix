@@ -162,6 +162,9 @@
   # Enables starship which ensures a fast prompt in the shell
   programs.starship.enable = true;
 
+  # PDF viewer
+  programs.zathura.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
