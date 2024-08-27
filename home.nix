@@ -82,6 +82,7 @@
 
     GTK_THEME = "Catpuccin-Macchiato";
     XDG_CURRENT_DESKTOP = "Hyprland";
+    LD_LIBRARY_PATH= "${pkgs.stdenv.cc.cc.lib}/lib/"; # Remove if nix breaks :)
   };
 
   ### THEME ###
