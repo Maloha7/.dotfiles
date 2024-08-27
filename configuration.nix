@@ -186,10 +186,13 @@
         teams-for-linux # Microsoft teams
         lazygit # Git terminal ui
         lazydocker # Docker terminal ui
+        vscode
 
         # LANGUAGES
         python3
         nodejs
+        gcc-unwrapped # Needed for libstdc in python
+        stdenv.cc.cc.lib
 
         # NEOVIM
         neovim
