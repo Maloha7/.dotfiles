@@ -56,7 +56,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M  %m/%d}",
+        "format": "{:%H:%M  %d/%m}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
 		"on-click": "gnome-calendar"
