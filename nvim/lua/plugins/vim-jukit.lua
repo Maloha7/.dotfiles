@@ -1,3 +1,3 @@
 return {
-    { "luk400/vim-jukit" }
+    { "luk400/vim-jukit", ft="python" }
 }

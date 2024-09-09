@@ -147,6 +147,10 @@
 	};
   };
 
+  home.activation.copyNvimConfig = config.lib.dag.entryAfter ["writeBoundary"] ''
+  ln -s ~/.dotfiles/nvim ~/.config/nvim
+'';
+
   services.hyprpaper = {
   	package = pkgs.hyprpaper;
   	enable = true;
