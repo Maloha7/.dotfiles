@@ -2,9 +2,9 @@
   description = "Nixos Flake Config";
 
   inputs = {
-	nixpkgs.url = "nixpkgs/nixos-24.05";
+	nixpkgs.url = "nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
-	home-manager.url = "github:nix-community/home-manager/release-24.05";
+	home-manager.url = "github:nix-community/home-manager";
 	home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 

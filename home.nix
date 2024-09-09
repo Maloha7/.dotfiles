@@ -109,10 +109,10 @@
   home.file = {
 	".config/hypr/hyprland.conf".source = ./hyprland.conf;
 	".config/alacritty/alacritty.toml".source = ./alacritty.toml;
-	".config/nvim" = {
-		source = ./nvim;
-		recursive = true;
-	};
+	# ".config/nvim" = {
+	# 	source = ./nvim;
+	# 	recursive = true;
+	# };
 	".config/hypr" = {
 		source = ./hypr;
 		recursive = true;
@@ -139,6 +139,10 @@
 	};
 	".config/dunst" = {
 		source = ./dunst;
+		recursive = true;
+	};
+	".config/kitty" = {
+		source = ./kitty;
 		recursive = true;
 	};
   };

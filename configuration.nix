@@ -14,6 +14,7 @@
     boot = {
         loader = {
             systemd-boot.enable = true;
+            systemd-boot.configurationLimit = 10;
             efi.canTouchEfiVariables = true;
             # Disables the first screen
             # timeout = 0;
@@ -53,7 +54,7 @@
     # GPU
     hardware.opengl = {
         enable = true;
-        driSupport = true;
+        # driSupport = true;
         driSupport32Bit = true;
     };
 
@@ -187,9 +188,12 @@
         lazygit # Git terminal ui
         lazydocker # Docker terminal ui
         vscode
+        imagemagick
+        gimp
 
         # LANGUAGES
         python3
+        python312Packages.ipython
         nodejs
         gcc-unwrapped # Needed for libstdc in python
         stdenv.cc.cc.lib
