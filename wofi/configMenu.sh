@@ -16,7 +16,7 @@ MYEDITOR="alacritty -e nvim"
 # You can edit this list to add/remove config files.
 declare -A options
 options[ Alacritty]="$HOME/.dotfiles/alacritty.toml"
-options[ Configuration]="$HOME/.dotfiles/configuration.nix"
+options[ Nixos]="$HOME/.dotfiles/configuration.nix"
 options[ Hyprland]="$HOME/.dotfiles/hyprland.conf"
 options[ Home-Manager]="$HOME/.dotfiles/home.nix"
 options[ Config menu]="$HOME/.dotfiles/wofi/configMenu.sh"

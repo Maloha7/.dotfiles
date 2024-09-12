@@ -190,13 +190,21 @@
         vscode
         imagemagick
         gimp
+        zotero
 
         # LANGUAGES
+        #
+        # PYTHON
         python3
+        python312Packages.pip
         python312Packages.ipython
-        nodejs
+        python3Packages.setuptools
+        python3Packages.wheel
+        glibc
+        glibc.dev
         gcc-unwrapped # Needed for libstdc in python
         stdenv.cc.cc.lib
+        nodejs
 
         # NEOVIM
         neovim
