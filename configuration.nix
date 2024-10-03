@@ -191,6 +191,8 @@
         imagemagick
         gimp
         zotero
+        obsidian
+        steam
 
         # LANGUAGES
         #
@@ -198,6 +200,8 @@
         python3
         python312Packages.pip
         python312Packages.ipython
+        pipenv
+        poetry
         python3Packages.setuptools
         python3Packages.wheel
         glibc
