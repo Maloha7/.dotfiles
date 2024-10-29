@@ -193,6 +193,7 @@
         zotero
         obsidian
         steam
+        discord
 
         # LANGUAGES
         #
@@ -209,6 +210,7 @@
         gcc-unwrapped # Needed for libstdc in python
         stdenv.cc.cc.lib
         nodejs
+        texlive.combined.scheme-full
 
         # NEOVIM
         neovim
