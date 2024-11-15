@@ -194,6 +194,7 @@
         obsidian
         steam
         discord
+        rpi-imager
 
         # LANGUAGES
         #
@@ -211,6 +212,7 @@
         stdenv.cc.cc.lib
         nodejs
         texlive.combined.scheme-full
+
 
         # NEOVIM
         neovim

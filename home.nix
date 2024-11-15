@@ -40,6 +40,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    #C#
+    pkgs.dotnetCorePackages.dotnet_8.sdk
+    pkgs.dotnetCorePackages.dotnet_8.runtime
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -83,6 +86,7 @@
     GTK_THEME = "Catpuccin-Macchiato";
     XDG_CURRENT_DESKTOP = "Hyprland";
     LD_LIBRARY_PATH= "${pkgs.stdenv.cc.cc.lib}/lib/"; # Remove if nix breaks :)
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
   };
 
   ### THEME ###
