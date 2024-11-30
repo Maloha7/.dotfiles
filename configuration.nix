@@ -52,10 +52,9 @@
     };
 
     # GPU
-    hardware.opengl = {
+    hardware.graphics = {
         enable = true;
-        # driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
     };
 
     # Bluetooth
@@ -256,7 +255,8 @@
         font-awesome
         powerline-fonts
         powerline-symbols
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        nerd-fonts.jetbrains-mono
     ];
 
     # Setting zsh as default shell
