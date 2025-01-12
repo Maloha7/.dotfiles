@@ -14,7 +14,7 @@
     boot = {
         loader = {
             systemd-boot.enable = true;
-            systemd-boot.configurationLimit = 10;
+            # systemd-boot.configurationLimit = 20;
             efi.canTouchEfiVariables = true;
             # Disables the first screen
             # timeout = 0;
@@ -216,7 +216,7 @@
         # NEOVIM
         neovim
         xclip # Needed to access clipboard in neovim
-        gcc # Needed for treesitter in neovim
+        gcc10 # Needed for treesitter in neovim
         ripgrep # Live grep for telescope
         fd # Find files for telescope
         fzf # Fuzzy finder
@@ -255,8 +255,8 @@
         font-awesome
         powerline-fonts
         powerline-symbols
-        # (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        nerd-fonts.jetbrains-mono
+        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        # nerd-fonts.jetbrains-mono
     ];
 
     # Setting zsh as default shell
