@@ -2,9 +2,9 @@
   description = "Nixos Flake Config";
 
   inputs = {
-	nixpkgs.url = "nixpkgs/nixos-24.11";
-    catppuccin.url = "github:catppuccin/nix";
-	home-manager.url = "github:nix-community/home-manager/release-24.11";
+	nixpkgs.url = "nixpkgs/nixos-25.05";
+    catppuccin.url = "github:catppuccin/nix/release-25.05";
+	home-manager.url = "github:nix-community/home-manager/release-25.05";
 	home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -23,7 +23,7 @@
 	homeConfigurations = {
 		maloha = home-manager.lib.homeManagerConfiguration {
 			inherit pkgs;
-			modules = [ ./home.nix catppuccin.homeManagerModules.catppuccin ];
+			modules = [./home.nix  catppuccin.homeModules.catppuccin];
 		};
 	};
   };

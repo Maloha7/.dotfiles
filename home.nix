@@ -43,6 +43,7 @@
     #C#
     pkgs.dotnetCorePackages.dotnet_8.sdk
     pkgs.dotnetCorePackages.dotnet_8.runtime
+    pkgs.netcoredbg
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -85,30 +86,30 @@
 
     GTK_THEME = "Catpuccin-Macchiato";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    # LD_LIBRARY_PATH= "${pkgs.stdenv.cc.cc.lib}/lib/"; # Remove if nix breaks :)
-    DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib/"; # Remove if nix breaks :)
+    # DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+    # PATH = "${pkgs.dotnet-sdk_8}/bin:$HOME/.dotnet/tools:$PATH";
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_8}/share/dotnet";
+    DOTNET_ROOT_x86 = "${pkgs.dotnet-sdk_8}/share/dotnet";  # Ensures compatibility
+    PATH = "${pkgs.dotnet-sdk_8}/bin:$HOME/.dotnet/tools:$PATH";
   };
+    
+  # home.sessionPath = [
+  #   "$HOME/.dotnet/tools"
+  # ];
+
 
   ### THEME ###
   catppuccin = {
         enable = true;
         flavor = "macchiato";
-        pointerCursor = {
-            enable = true;
-            accent = "teal";
-            flavor = "macchiato";
-        };
+        # pointerCursor = {
+        #     enable = true;
+        #     accent = "teal";
+        #     flavor = "macchiato";
+        # };
     };
   
-  gtk = {
-        enable = true;
-        catppuccin = {
-        enable = true;
-        flavor = "macchiato";
-        gnomeShellTheme = true;
-    };
-  };
-
   # Puts the config files from .dotfiles into .config
   home.file = {
 	".config/hypr/hyprland.conf".source = ./hyprland.conf;
@@ -174,9 +175,7 @@
 
   # Enables starship which ensures a fast prompt in the shell
   programs.starship.enable = true;
-
-  # PDF viewer
-  programs.zathura.enable = true;
+  # programs.posting.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

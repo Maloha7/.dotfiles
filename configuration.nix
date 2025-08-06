@@ -48,6 +48,7 @@
             "rd.systemd.show_status=false"
             "rd.udev.log_level=3"
             "udev.log_priority=3"
+            # "fsck.mode=skip"
         ];
     };
 
@@ -66,7 +67,8 @@
     services.blueman.enable = true;
 
     networking.hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    networking.wireless.userControlled.enable = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
@@ -125,7 +127,7 @@
     services.printing.enable = true;
 
     # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
         enable = true;
@@ -147,7 +149,7 @@
     users.users.maloha = {
         isNormalUser = true;
         description = "Marius Hatland";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "docker" ];
         packages = with pkgs; [
             #  thunderbird
         ];
@@ -179,6 +181,7 @@
         kitty # Terminal emulator
         alacritty # Terminal emulator
         home-manager # For managing .config files
+        tree
 
         # APPLICATIONS
         pavucontrol # Sound control
@@ -194,17 +197,25 @@
         steam
         discord
         rpi-imager
+        zoom-us
+        tmux
+        blender
 
         # LANGUAGES
         #
         # PYTHON
-        python3
-        python312Packages.pip
-        python312Packages.ipython
-        pipenv
-        poetry
-        python3Packages.setuptools
-        python3Packages.wheel
+        (python312.withPackages (ps: with ps; [
+            pip ipykernel jupyter notebook
+        ]))
+        # python312Packages.ipython
+        # python312Packages.ipykernel
+        # python312Packages.jupyter
+        # python312Packages.notebook
+        # pipenv
+        # poetry
+        # python3Packages.setuptools
+        # python3Packages.wheel
+        gcc
         glibc
         glibc.dev
         gcc-unwrapped # Needed for libstdc in python
@@ -212,11 +223,13 @@
         nodejs
         texlive.combined.scheme-full
 
+        #For opencv-python
+        mesa
+        libglvnd
 
         # NEOVIM
         neovim
         xclip # Needed to access clipboard in neovim
-        gcc10 # Needed for treesitter in neovim
         ripgrep # Live grep for telescope
         fd # Find files for telescope
         fzf # Fuzzy finder
@@ -229,6 +242,7 @@
         nodejs
         cargo
         cmake
+        jq
 
         # HYPRLAND
         hyprpaper # For setting backgrounds in hyprland
@@ -255,14 +269,14 @@
         font-awesome
         powerline-fonts
         powerline-symbols
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        # nerd-fonts.jetbrains-mono
+        nerd-fonts.jetbrains-mono
     ];
 
     # Setting zsh as default shell
     environment.shells = with pkgs; [ zsh ];
     users.defaultUserShell = pkgs.zsh;
     programs.zsh.enable = true;
+    programs.nix-ld.enable = true;
 
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -286,6 +300,11 @@
 
     # Enable virtualbox
     virtualisation.virtualbox.host.enable = true;
+
+
+    virtualisation.docker = {
+        enable = true;
+    };
     users.extraGroups.vboxusers.members = [ "maloha" ];
 
 
