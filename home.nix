@@ -44,6 +44,7 @@
     pkgs.dotnetCorePackages.dotnet_8.sdk
     pkgs.dotnetCorePackages.dotnet_8.runtime
     pkgs.netcoredbg
+    pkgs.insomnia
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -103,11 +104,11 @@
   catppuccin = {
         enable = true;
         flavor = "macchiato";
-        # pointerCursor = {
-        #     enable = true;
-        #     accent = "teal";
-        #     flavor = "macchiato";
-        # };
+        cursors = {
+            enable = true;
+            accent = "teal";
+            flavor = "macchiato";
+        };
     };
   
   # Puts the config files from .dotfiles into .config

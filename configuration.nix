@@ -199,7 +199,7 @@
         rpi-imager
         zoom-us
         tmux
-        blender
+        slumber
 
         # LANGUAGES
         #
@@ -306,6 +306,31 @@
         enable = true;
     };
     users.extraGroups.vboxusers.members = [ "maloha" ];
+
+    # DOTNET DEV CERTIFICATE
+    security.pki.certificates = [
+        ''
+        -----BEGIN CERTIFICATE-----
+        MIIDDTCCAfWgAwIBAgIJAOQ6xX5XyJ08MA0GCSqGSIb3DQEBCwUAMBQxEjAQBgNV
+        BAMTCWxvY2FsaG9zdDAeFw0yNDExMTUxNDE3NTRaFw0yNTExMTUxNDE3NTRaMBQx
+        EjAQBgNVBAMTCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+        ggEBALVLxNmxXyeum48xAz+ks/aksOxbd/E3VuvNkSRf8YsSu/A9PxLAU4D3mhiN
+        0rDn3vkLejto6vSb7J/pNBVLvZVKVy6dbOm/3eWfZPhrRQRKxQ4pxTOogruTZeP4
+        pMIxzWF8MMQ79/Cn1dCRY3kmttP/NQ6O20GYU5aAGASGYZWrBI0T5K7HFsfo1zyv
+        ciOJkDEkSft+kU0h8cJCY8TyVs0fq28WvJcka4zb1wdYLwajLeIDAqBT15Qj5zoF
+        PfKYAc+6flajUsOD8ysUzNdftG4ygUGyCEw9cn42LKB8rc7dZPrEVQV0fy7wflcb
+        PHI3rtlFznXGKS4/c2mACmgyTk8CAwEAAaNiMGAwDAYDVR0TAQH/BAIwADAOBgNV
+        HQ8BAf8EBAMCBaAwFgYDVR0lAQH/BAwwCgYIKwYBBQUHAwEwFwYDVR0RAQH/BA0w
+        C4IJbG9jYWxob3N0MA8GCisGAQQBgjdUAQEEAQIwDQYJKoZIhvcNAQELBQADggEB
+        AD/sxVn+bOG1SdMsIOnBq+guKLiIoux2GHVNdUrYJg+kqVB3phdCyYVbagQKuGap
+        /II8uwuOt70qzXIZ4MlzzN28BwBm3drCyXqE3ibg5E1TMwLYdgZuFY00R0QwW0Ux
+        dg579JWl2hD4Hre5s6jh2G2LUtpwN3OrS6XTc8SDuIwzOkGXLMtCT+QgjMX1+i4s
+        fvFJbH5BF+gkK+kIbGbcxiAr1QCpxggBR9aOBTNodab3sM2E5glnptOeW44Qs9zk
+        Y8corw0GzK+lCAZ5YuEaTg6riz3ywaNtczkqHtnNMZZ/4I03WIUXhZd42Q+Dac20
+        SbOTq6KMlQT82cilE0YdAt4=
+        -----END CERTIFICATE-----
+        ''
+    ];
 
 
     # This value determines the NixOS release from which the default
