@@ -199,7 +199,7 @@
         rpi-imager
         zoom-us
         tmux
-        slumber
+        kubectl
 
         # LANGUAGES
         #
@@ -305,6 +305,14 @@
     virtualisation.docker = {
         enable = true;
     };
+
+    #Kubernetes config
+    services.k3s = {
+        enable = true;
+        role = "server"; # single-node cluster
+        extraFlags = "--docker";
+    };
+
     users.extraGroups.vboxusers.members = [ "maloha" ];
 
     # DOTNET DEV CERTIFICATE

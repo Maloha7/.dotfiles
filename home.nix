@@ -45,6 +45,7 @@
     pkgs.dotnetCorePackages.dotnet_8.runtime
     pkgs.netcoredbg
     pkgs.insomnia
+    pkgs.azure-cli
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
